@@ -1,0 +1,9 @@
+<h2>Say Hello to <%= @kitten.name %><h2>
+
+<p>Age: <%= @kitten.age %></p>
+<p>Cuteness level: <%= @kitten.cuteness %></p>
+<p>Softness score: <%= @kitten.softness %></p>
+
+<hr>
+<p>Would you like to send your kitten to a new home?</p>
+<%= button_to "Find a new home", kitten_path(@kitten), method: :delete, data: { turbo_confirm: "Are you sure?" } %>

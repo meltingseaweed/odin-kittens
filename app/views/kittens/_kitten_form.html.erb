@@ -1,0 +1,25 @@
+<%= form_with model: @kitten do |f| %>
+    <ul>
+        <li>
+            <%= f.label :name %>
+            <%= f.text_field :name, placeholder: "Fluffy" %>
+        </li>
+        <li>
+            <%= f.label :age, "In years:" %>
+            <%= f.number_field :age, placeholder: "1" %>
+        </li>
+        <li>
+            <%= f.label :cuteness, "A score from 1 to 10:" %>
+            <%= f.number_field :cuteness, placeholder: "10" %>
+        </li>
+        <li>
+            <%= f.label :softness, "A score from 1 to 10:" %>
+            <%= f.number_field :softness, placeholder: "0" %>
+        </li>
+        <br>
+        <div>
+            <%= f.submit "Submit~Meow!", class: "btn-primary" %>
+        </div>
+    </ul>    
+
+<% end %>

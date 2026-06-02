@@ -1,0 +1,17 @@
+<h2>Hello all the kittens in the house</h2>
+
+<div>
+    <% @kittens.each do |kitten| %>
+    <ul>
+        <p>Name: <%= kitten.name %></p>
+        <p>Age: <%= kitten.age %></p>
+        <p>Cuteness level: <%= kitten.cuteness %></p>
+        <p>Softness level: <%= kitten.softness %></p>
+        <p>Set <%= kitten.name %> up for adoption?</p>
+        <%= button_to "Find a new home", kitten_path(kitten), method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+    </ul>
+    <% end %>
+</div>
+
+<%= button_to "Adopt a new kitten", new_kitten_path, method: :get %>
+
