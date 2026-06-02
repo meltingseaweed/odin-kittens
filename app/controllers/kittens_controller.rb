@@ -1,22 +1,12 @@
 class KittensController < ApplicationController
   def index
     @kittens = Kitten.all
-
-    respond_to do |format|
-      format.html
-      format.xml { render xml: @kittens }
-      format.json { render json: @kittens }
-    end
+    turn_into_api(@kitten)
   end
 
   def show
     find_kitten
-
-    respond_to do |format|
-      format.html
-      format.xml { render xml: @kitten }
-      format.json { render json: @kitten }
-    end
+    turn_into_api(@kitten)
   end
 
   def new
@@ -59,5 +49,13 @@ class KittensController < ApplicationController
 
   def kitten_params
     params.expect(kitten: [ :name, :age, :cuteness, :softness ])
+  end
+
+  def turn_into_api(cat)
+    respond_to do |format|
+      format.html
+      format.xml { render xml: cat }
+      format.json { render json: cat }
+    end
   end
 end
